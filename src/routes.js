@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, Route, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import AppLayout from './AppLayout';
 import AddTravel from './pages/AddTravel';
 import DestinationDetails from './pages/DestinationDetails';
