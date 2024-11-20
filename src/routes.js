@@ -8,42 +8,51 @@ import EditTravel from './pages/EditTravel';
 import HomePage from './pages/HomePage';
 import TravelList from './pages/TravelList';
 
-
-const router = createBrowserRouter([
-  {
-    path:"/",
-    element: <AppLayout/>,
-    children: [
-      {
-        path: "/",
-        element:<HomePage/>
-      },
-      {
-        path: "/travelList",
-        element: <TravelList/>
-      },
-      {
-        path: "/destinationList",
-        element: <DestinationList />
-      },
-      {
-        path: "/destinationDetails/:name",
-        element: <DestinationDetails />
-      },
-      {
-        path: "/addTravel",
-        element: <AddTravel />
-      },
-      {
-        path: "/editTravel/:destination",
-        element: <EditTravel />
-      }
-    ],
-  },
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<AppLayout />}>
+      <Route path="/" element={<HomePage />} />
+    </Route>
+  ),
   {
     basename: "/react-app"
   }
-]);
+);
+// const router = createBrowserRouter([
+//   {
+//     path:"/",
+//     element: <AppLayout/>,
+//     children: [
+//       {
+//         path: "/",
+//         element:<HomePage/>
+//       },
+//       {
+//         path: "/travelList",
+//         element: <TravelList/>
+//       },
+//       {
+//         path: "/destinationList",
+//         element: <DestinationList />
+//       },
+//       {
+//         path: "/destinationDetails/:name",
+//         element: <DestinationDetails />
+//       },
+//       {
+//         path: "/addTravel",
+//         element: <AddTravel />
+//       },
+//       {
+//         path: "/editTravel/:destination",
+//         element: <EditTravel />
+//       }
+//     ],
+//   },
+//   {
+//     basename: "/react-app"
+//   }
+// ]);
 
 export function AppRouter() {
   return <RouterProvider router={router} />;
