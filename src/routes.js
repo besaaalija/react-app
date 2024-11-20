@@ -8,56 +8,41 @@ import EditTravel from './pages/EditTravel';
 import HomePage from './pages/HomePage';
 import TravelList from './pages/TravelList';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<AppLayout />}>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/travelList" element={<TravelList />} />
-      <Route path="/destinationList" element={<DestinationList />} />
-      <Route path="/addTravel" element={<AddTravel />} />
-      <Route path="/editTravel/:destination" element={<EditTravel />} />
-      <Route path="/destinationDetails/:name" element={<DestinationDetails />} />
-    </Route>
-  ),
+const router = createBrowserRouter([
   {
-    basename: "/react-app"
+    path:"/",
+    element: <AppLayout/>,
+    children: [
+      {
+        path: "/",
+        element:<HomePage/>
+      },
+      {
+        path: "/travelList",
+        element: <TravelList/>
+      },
+      {
+        path: "/destinationList",
+        element: <DestinationList />
+      },
+      {
+        path: "/destinationDetails/:name",
+        element: <DestinationDetails />
+      },
+      {
+        path: "/addTravel",
+        element: <AddTravel />
+      },
+      {
+        path: "/editTravel/:destination",
+        element: <EditTravel />
+      }
+    ],
   }
-);
-// const router = createBrowserRouter([
-//   {
-//     path:"/",
-//     element: <AppLayout/>,
-//     children: [
-//       {
-//         path: "/",
-//         element:<HomePage/>
-//       },
-//       {
-//         path: "/travelList",
-//         element: <TravelList/>
-//       },
-//       {
-//         path: "/destinationList",
-//         element: <DestinationList />
-//       },
-//       {
-//         path: "/destinationDetails/:name",
-//         element: <DestinationDetails />
-//       },
-//       {
-//         path: "/addTravel",
-//         element: <AddTravel />
-//       },
-//       {
-//         path: "/editTravel/:destination",
-//         element: <EditTravel />
-//       }
-//     ],
-//   },
-//   {
-//     basename: "/react-app"
-//   }
-// ]);
+], 
+{
+  basename: "/react-app"
+});
 
 export function AppRouter() {
   return <RouterProvider router={router} />;
